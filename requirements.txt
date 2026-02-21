@@ -1,0 +1,6 @@
+# AURA - Ambient Universal Response Architecture
+# No external dependencies required - uses Python standard library only
+
+# Optional development dependencies:
+# pytest>=7.0.0        # For testing
+# pytest-cov>=4.0      # For coverage
