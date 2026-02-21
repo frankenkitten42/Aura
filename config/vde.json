@@ -1,0 +1,130 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "Visual Discomfort Engine configuration",
+    "phase": "1 - Core VDE"
+  },
+
+  "thresholds": {
+    "description": "Population thresholds for visual phases",
+    "pristine_max": 0.10,
+    "healthy_max": 0.20,
+    "occupied_max": 0.35,
+    "busy_max": 0.50,
+    "crowded_max": 0.70
+  },
+
+  "factor_weights": {
+    "description": "Weights for VDI factor contributions",
+    "discomfort": {
+      "motion_incoherence": 0.15,
+      "visual_density": 0.12,
+      "light_diffusion": 0.10,
+      "environmental_wear": 0.08,
+      "wildlife_absence": 0.12,
+      "npc_unease": 0.08,
+      "spatial_noise": 0.10
+    },
+    "comfort": {
+      "motion_coherence": -0.12,
+      "visual_clarity": -0.10,
+      "light_quality": -0.08,
+      "environmental_health": -0.10,
+      "wildlife_presence": -0.15,
+      "npc_comfort": -0.08,
+      "spatial_invitation": -0.10
+    }
+  },
+
+  "smoothing": {
+    "description": "VDI smoothing parameters",
+    "factor": 0.08,
+    "lag_rise_seconds": 10.0,
+    "lag_fall_seconds": 15.0
+  },
+
+  "wildlife": {
+    "description": "Wildlife behavior thresholds",
+    "thriving_max_pop": 0.15,
+    "wary_max_pop": 0.30,
+    "retreating_max_pop": 0.50,
+    "flee_rate": 0.15,
+    "return_rate": 0.03,
+    "recovery_times": {
+      "absent_to_retreating": 30.0,
+      "retreating_to_wary": 45.0,
+      "wary_to_thriving": 60.0
+    }
+  },
+
+  "wear": {
+    "description": "Environmental wear accumulation",
+    "growth_threshold": 0.30,
+    "decay_threshold": 0.20,
+    "growth_rate": 0.02,
+    "decay_rate": 0.005,
+    "max_accumulation": 1.0
+  },
+
+  "output_limits": {
+    "description": "Maximum values for output parameters",
+    "post_process": {
+      "bloom_intensity_mod_max": 0.30,
+      "contrast_reduction_max": 0.25,
+      "shadow_softness_max": 0.35,
+      "saturation_reduction_max": 0.05,
+      "haze_density_max": 0.20,
+      "vignette_max": 0.10,
+      "color_temp_shift_max": 150.0
+    },
+    "materials": {
+      "foliage_restlessness_max": 0.40,
+      "cloth_settle_increase_max": 3.0,
+      "water_clarity_reduction_max": 0.50,
+      "prop_jitter_max": 0.15,
+      "grass_trampling_max": 0.80
+    },
+    "spawning": {
+      "wildlife_spawn_rate_min": 0.0,
+      "npc_idle_variety_min": 0.20,
+      "npc_position_noise_max": 0.50,
+      "ambient_creature_min": 0.20
+    },
+    "particles": {
+      "dust_density_max": 0.70,
+      "pollen_intensity_max": 0.50,
+      "debris_frequency_max": 0.50,
+      "coherence_reduction_max": 0.40
+    },
+    "motion": {
+      "phase_variance_max": 0.15,
+      "wind_variance_max": 0.30,
+      "wave_coherence_min": 0.60,
+      "cloth_rest_min": 0.50,
+      "prop_stability_min": 0.80
+    }
+  },
+
+  "phase_effects": {
+    "description": "Which effects activate in which phases",
+    "motion_incoherence": ["busy", "crowded", "saturated"],
+    "visual_density": ["occupied", "busy", "crowded", "saturated"],
+    "light_diffusion": ["crowded", "saturated"],
+    "npc_unease": ["crowded", "saturated"],
+    "spatial_noise": ["saturated"],
+    "comfort_active": ["pristine", "healthy"]
+  },
+
+  "attraction": {
+    "description": "Attraction system for low-pop areas",
+    "threshold_pop": 0.20,
+    "light_temp_boost_max": 200.0,
+    "god_ray_probability_max": 0.40,
+    "specular_bonus_max": 0.15,
+    "path_visibility_max": 0.20,
+    "foliage_reduction_max": 0.15,
+    "landmark_clarity_max": 0.30,
+    "discovery_visibility_max": 0.50,
+    "distant_activity_max": 0.40
+  }
+}

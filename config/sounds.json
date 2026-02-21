@@ -1,0 +1,1580 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "Sound definitions for Living Soundscape Engine",
+    "last_updated": "2025-02-05"
+  },
+
+  "layers": {
+    "background": {
+      "description": "Continuous ambient sounds that form the base layer",
+      "max_concurrent": 2,
+      "contributes_to_silence": false,
+      "default_persistence": "continuous"
+    },
+    "periodic": {
+      "description": "Sounds that occur at intervals",
+      "max_concurrent": 4,
+      "contributes_to_silence": true,
+      "default_persistence": "single"
+    },
+    "reactive": {
+      "description": "Sounds triggered by events or entities",
+      "max_concurrent": 3,
+      "contributes_to_silence": true,
+      "default_persistence": "single"
+    },
+    "anomalous": {
+      "description": "Rare or context-breaking sounds",
+      "max_concurrent": 1,
+      "contributes_to_silence": true,
+      "default_persistence": "single",
+      "sdi_weight_multiplier": 1.5
+    }
+  },
+
+  "sounds": {
+    "wind_through_leaves": {
+      "id": "wind_through_leaves",
+      "name": "Wind Through Leaves",
+      "layer": "background",
+      "frequency_band": "mid",
+      "base_probability": 0.8,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind"]
+      },
+      "duration": {
+        "min": 10.0,
+        "max": 30.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.7
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["organic", "wind", "foliage"]
+    },
+
+    "branch_creaks": {
+      "id": "branch_creaks",
+      "name": "Branch Creaks",
+      "layer": "periodic",
+      "frequency_band": "mid",
+      "base_probability": 0.4,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind", "storm"]
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 2.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 3.0,
+      "natural_duration": 1.5,
+      "rhythm_capable": true,
+      "tags": ["organic", "wood", "tension"]
+    },
+
+    "birdsong": {
+      "id": "birdsong",
+      "name": "Birdsong",
+      "layer": "periodic",
+      "frequency_band": "high",
+      "base_probability": 0.7,
+      "time_constraints": ["day", "dawn"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm", "rain"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 2.0,
+        "max": 8.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.6
+      },
+      "cooldown": 5.0,
+      "natural_duration": 5.0,
+      "rhythm_capable": true,
+      "harmony_pairs": ["wind_through_leaves", "grass_movement"],
+      "conflict_pairs": ["cave_sounds", "snow_sounds"],
+      "tags": ["organic", "animal", "day", "pleasant"]
+    },
+
+    "bird_calls": {
+      "id": "bird_calls",
+      "name": "Bird Calls",
+      "layer": "periodic",
+      "frequency_band": "high",
+      "base_probability": 0.5,
+      "time_constraints": ["day"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 2.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.4,
+        "max": 0.7
+      },
+      "cooldown": 8.0,
+      "natural_duration": 1.0,
+      "tags": ["organic", "animal", "day"]
+    },
+
+    "insects_chirping": {
+      "id": "insects_chirping",
+      "name": "Insects Chirping",
+      "layer": "periodic",
+      "frequency_band": "high",
+      "base_probability": 0.6,
+      "time_constraints": ["dusk", "night"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm", "rain"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 5.0,
+        "max": 20.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 2.0,
+      "natural_duration": 15.0,
+      "rhythm_capable": true,
+      "conflict_pairs": ["snow_sounds", "ice_sounds"],
+      "tags": ["organic", "animal", "night"]
+    },
+
+    "distant_fauna_movement": {
+      "id": "distant_fauna_movement",
+      "name": "Distant Fauna Movement",
+      "layer": "reactive",
+      "frequency_band": "low_mid",
+      "base_probability": 0.3,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 1.0,
+        "max": 4.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.1,
+        "max": 0.4
+      },
+      "cooldown": 15.0,
+      "natural_duration": 2.0,
+      "tags": ["organic", "animal", "distant"]
+    },
+
+    "footsteps_leaf_litter": {
+      "id": "footsteps_leaf_litter",
+      "name": "Footsteps on Leaf Litter",
+      "layer": "reactive",
+      "frequency_band": "mid",
+      "base_probability": 0.2,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.3,
+        "max": 0.8,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.6
+      },
+      "cooldown": 0.5,
+      "natural_duration": 0.5,
+      "rhythm_capable": true,
+      "tags": ["organic", "footstep"]
+    },
+
+    "owl_calls": {
+      "id": "owl_calls",
+      "name": "Owl Calls",
+      "layer": "periodic",
+      "frequency_band": "mid",
+      "base_probability": 0.3,
+      "time_constraints": ["night", "midnight"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 1.0,
+        "max": 3.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.5
+      },
+      "cooldown": 20.0,
+      "natural_duration": 2.0,
+      "tags": ["organic", "animal", "night"]
+    },
+
+    "wind_gusts": {
+      "id": "wind_gusts",
+      "name": "Wind Gusts",
+      "layer": "background",
+      "frequency_band": "low_mid",
+      "base_probability": 0.9,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind", "storm"]
+      },
+      "duration": {
+        "min": 5.0,
+        "max": 15.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.8
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["weather", "wind"]
+    },
+
+    "grass_movement": {
+      "id": "grass_movement",
+      "name": "Grass Movement",
+      "layer": "background",
+      "frequency_band": "mid",
+      "base_probability": 0.6,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind"]
+      },
+      "duration": {
+        "min": 8.0,
+        "max": 20.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "harmony_pairs": ["wind_gusts", "birdsong"],
+      "tags": ["organic", "foliage"]
+    },
+
+    "occasional_insects": {
+      "id": "occasional_insects",
+      "name": "Occasional Insects",
+      "layer": "periodic",
+      "frequency_band": "high",
+      "base_probability": 0.3,
+      "time_constraints": ["day", "dusk"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm", "rain"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 1.0,
+        "max": 5.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.1,
+        "max": 0.3
+      },
+      "cooldown": 10.0,
+      "natural_duration": 3.0,
+      "tags": ["organic", "animal"]
+    },
+
+    "distant_animal_calls": {
+      "id": "distant_animal_calls",
+      "name": "Distant Animal Calls",
+      "layer": "periodic",
+      "frequency_band": "mid",
+      "base_probability": 0.2,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 2.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.1,
+        "max": 0.3
+      },
+      "cooldown": 30.0,
+      "natural_duration": 1.0,
+      "tags": ["organic", "animal", "distant"]
+    },
+
+    "sparse_bird_calls": {
+      "id": "sparse_bird_calls",
+      "name": "Sparse Bird Calls",
+      "layer": "periodic",
+      "frequency_band": "high",
+      "base_probability": 0.2,
+      "time_constraints": ["day"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm", "rain"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 1.5,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.4
+      },
+      "cooldown": 20.0,
+      "natural_duration": 1.0,
+      "tags": ["organic", "animal", "day"]
+    },
+
+    "thunder_distant": {
+      "id": "thunder_distant",
+      "name": "Distant Thunder",
+      "layer": "anomalous",
+      "frequency_band": "low",
+      "base_probability": 0.4,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": ["storm"],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 2.0,
+        "max": 6.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.7
+      },
+      "cooldown": 30.0,
+      "natural_duration": 4.0,
+      "tags": ["weather", "thunder"]
+    },
+
+    "wind_howls": {
+      "id": "wind_howls",
+      "name": "Wind Howls",
+      "layer": "background",
+      "frequency_band": "low_mid",
+      "base_probability": 0.7,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind", "storm"]
+      },
+      "duration": {
+        "min": 8.0,
+        "max": 25.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.4,
+        "max": 0.9
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["weather", "wind", "elevation"]
+    },
+
+    "loose_rock_falls": {
+      "id": "loose_rock_falls",
+      "name": "Loose Rock Falls",
+      "layer": "periodic",
+      "frequency_band": "mid",
+      "base_probability": 0.2,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind", "storm"]
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 3.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.6
+      },
+      "cooldown": 20.0,
+      "natural_duration": 1.5,
+      "tags": ["inorganic", "stone", "tension"]
+    },
+
+    "echoing_bird_calls": {
+      "id": "echoing_bird_calls",
+      "name": "Echoing Bird Calls",
+      "layer": "periodic",
+      "frequency_band": "high",
+      "base_probability": 0.3,
+      "time_constraints": ["day"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 1.0,
+        "max": 4.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 15.0,
+      "natural_duration": 2.0,
+      "reverb": true,
+      "tags": ["organic", "animal", "echo"]
+    },
+
+    "footsteps_stone": {
+      "id": "footsteps_stone",
+      "name": "Footsteps on Stone",
+      "layer": "reactive",
+      "frequency_band": "mid",
+      "base_probability": 0.3,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.2,
+        "max": 0.5,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.4,
+        "max": 0.7
+      },
+      "cooldown": 0.5,
+      "natural_duration": 0.3,
+      "reverb": true,
+      "rhythm_capable": true,
+      "tags": ["inorganic", "footstep"]
+    },
+
+    "ice_cracking": {
+      "id": "ice_cracking",
+      "name": "Ice Cracking",
+      "layer": "periodic",
+      "frequency_band": "mid_high",
+      "base_probability": 0.15,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.3,
+        "max": 2.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.7
+      },
+      "cooldown": 25.0,
+      "natural_duration": 1.0,
+      "tags": ["inorganic", "ice", "tension"]
+    },
+
+    "mountain_silence": {
+      "id": "mountain_silence",
+      "name": "Mountain Silence",
+      "layer": "background",
+      "frequency_band": "low",
+      "base_probability": 0.8,
+      "time_constraints": ["night", "midnight"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 15.0,
+        "max": 45.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.05,
+        "max": 0.15
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "is_silence": true,
+      "tags": ["silence", "ambient"]
+    },
+
+    "wind_over_sand": {
+      "id": "wind_over_sand",
+      "name": "Wind Over Sand",
+      "layer": "background",
+      "frequency_band": "high",
+      "base_probability": 0.5,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind"]
+      },
+      "duration": {
+        "min": 10.0,
+        "max": 30.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["weather", "wind", "sand"]
+    },
+
+    "sand_movement": {
+      "id": "sand_movement",
+      "name": "Sand Movement",
+      "layer": "background",
+      "frequency_band": "high",
+      "base_probability": 0.4,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": ["wind"],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 5.0,
+        "max": 15.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.1,
+        "max": 0.3
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["inorganic", "sand"]
+    },
+
+    "sparse_insect_chirps": {
+      "id": "sparse_insect_chirps",
+      "name": "Sparse Insect Chirps",
+      "layer": "periodic",
+      "frequency_band": "high",
+      "base_probability": 0.3,
+      "time_constraints": ["night"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 2.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.1,
+        "max": 0.3
+      },
+      "cooldown": 15.0,
+      "natural_duration": 1.0,
+      "tags": ["organic", "animal", "night"]
+    },
+
+    "footsteps_sand": {
+      "id": "footsteps_sand",
+      "name": "Footsteps on Sand",
+      "layer": "reactive",
+      "frequency_band": "mid",
+      "base_probability": 0.3,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.3,
+        "max": 0.6,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 0.5,
+      "natural_duration": 0.4,
+      "tags": ["inorganic", "footstep"]
+    },
+
+    "heat_shimmer_hum": {
+      "id": "heat_shimmer_hum",
+      "name": "Heat Shimmer Hum",
+      "layer": "background",
+      "frequency_band": "low",
+      "base_probability": 0.2,
+      "time_constraints": ["day"],
+      "weather_constraints": {
+        "required": ["clear"],
+        "excluded": ["rain", "storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 20.0,
+        "max": 60.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.05,
+        "max": 0.15
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["ambient", "heat"]
+    },
+
+    "waves_rhythmic": {
+      "id": "waves_rhythmic",
+      "name": "Rhythmic Waves",
+      "layer": "background",
+      "frequency_band": "low",
+      "base_probability": 0.95,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["storm"]
+      },
+      "duration": {
+        "min": 30.0,
+        "max": 120.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.4,
+        "max": 0.7
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "rhythm_capable": true,
+      "is_rhythmic": true,
+      "rhythm_interval": {
+        "min": 6.0,
+        "max": 10.0
+      },
+      "harmony_pairs": ["seabirds", "coastal_wind"],
+      "tags": ["water", "rhythmic", "pleasant"]
+    },
+
+    "wave_crashes": {
+      "id": "wave_crashes",
+      "name": "Wave Crashes",
+      "layer": "periodic",
+      "frequency_band": "low_mid",
+      "base_probability": 0.6,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["storm", "wind"]
+      },
+      "duration": {
+        "min": 2.0,
+        "max": 5.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.5,
+        "max": 0.9
+      },
+      "cooldown": 8.0,
+      "natural_duration": 3.0,
+      "tags": ["water"]
+    },
+
+    "water_movement": {
+      "id": "water_movement",
+      "name": "Water Movement",
+      "layer": "background",
+      "frequency_band": "mid",
+      "base_probability": 0.7,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 15.0,
+        "max": 45.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["water"]
+    },
+
+    "seabirds": {
+      "id": "seabirds",
+      "name": "Seabirds",
+      "layer": "periodic",
+      "frequency_band": "high",
+      "base_probability": 0.5,
+      "time_constraints": ["day", "dawn", "dusk"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 1.0,
+        "max": 4.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.6
+      },
+      "cooldown": 8.0,
+      "natural_duration": 2.0,
+      "harmony_pairs": ["waves_rhythmic", "coastal_wind"],
+      "tags": ["organic", "animal", "coastal"]
+    },
+
+    "coastal_wind": {
+      "id": "coastal_wind",
+      "name": "Coastal Wind",
+      "layer": "background",
+      "frequency_band": "low_mid",
+      "base_probability": 0.6,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind", "storm"]
+      },
+      "duration": {
+        "min": 10.0,
+        "max": 30.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.6
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["weather", "wind", "coastal"]
+    },
+
+    "footsteps_wet_sand": {
+      "id": "footsteps_wet_sand",
+      "name": "Footsteps on Wet Sand",
+      "layer": "reactive",
+      "frequency_band": "mid",
+      "base_probability": 0.3,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.3,
+        "max": 0.6,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 0.5,
+      "natural_duration": 0.4,
+      "tags": ["inorganic", "footstep", "wet"]
+    },
+
+    "distant_ship_horn": {
+      "id": "distant_ship_horn",
+      "name": "Distant Ship Horn",
+      "layer": "anomalous",
+      "frequency_band": "low",
+      "base_probability": 0.05,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["fog"]
+      },
+      "duration": {
+        "min": 2.0,
+        "max": 4.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.4
+      },
+      "cooldown": 120.0,
+      "natural_duration": 3.0,
+      "tags": ["mechanical", "distant", "coastal"]
+    },
+
+    "frogs_croaking": {
+      "id": "frogs_croaking",
+      "name": "Frogs Croaking",
+      "layer": "periodic",
+      "frequency_band": "mid",
+      "base_probability": 0.8,
+      "time_constraints": ["night", "dusk"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["rain"]
+      },
+      "duration": {
+        "min": 3.0,
+        "max": 10.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.4,
+        "max": 0.7
+      },
+      "cooldown": 5.0,
+      "natural_duration": 6.0,
+      "rhythm_capable": true,
+      "conflict_pairs": ["desert_sounds", "snow_sounds"],
+      "tags": ["organic", "animal", "water", "night"]
+    },
+
+    "insects_dense": {
+      "id": "insects_dense",
+      "name": "Dense Insects",
+      "layer": "background",
+      "frequency_band": "high",
+      "base_probability": 0.9,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 20.0,
+        "max": 60.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.6
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "conflict_pairs": ["snow_sounds", "desert_sounds"],
+      "tags": ["organic", "animal", "dense"]
+    },
+
+    "water_bubbling": {
+      "id": "water_bubbling",
+      "name": "Water Bubbling",
+      "layer": "background",
+      "frequency_band": "mid",
+      "base_probability": 0.5,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 10.0,
+        "max": 30.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.4
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["water", "organic"]
+    },
+
+    "distant_splashes": {
+      "id": "distant_splashes",
+      "name": "Distant Splashes",
+      "layer": "reactive",
+      "frequency_band": "mid",
+      "base_probability": 0.4,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 2.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 10.0,
+      "natural_duration": 1.0,
+      "tags": ["water", "distant"]
+    },
+
+    "mud_footsteps": {
+      "id": "mud_footsteps",
+      "name": "Mud Footsteps",
+      "layer": "reactive",
+      "frequency_band": "mid",
+      "base_probability": 0.3,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.4,
+        "max": 0.8,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.6
+      },
+      "cooldown": 0.5,
+      "natural_duration": 0.5,
+      "tags": ["organic", "footstep", "wet"]
+    },
+
+    "bird_calls_exotic": {
+      "id": "bird_calls_exotic",
+      "name": "Exotic Bird Calls",
+      "layer": "periodic",
+      "frequency_band": "high",
+      "base_probability": 0.4,
+      "time_constraints": ["day"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 1.0,
+        "max": 3.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.4,
+        "max": 0.7
+      },
+      "cooldown": 12.0,
+      "natural_duration": 2.0,
+      "tags": ["organic", "animal", "day", "exotic"]
+    },
+
+    "dripping_water": {
+      "id": "dripping_water",
+      "name": "Dripping Water",
+      "layer": "periodic",
+      "frequency_band": "mid_high",
+      "base_probability": 0.6,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["rain"]
+      },
+      "duration": {
+        "min": 0.2,
+        "max": 0.5,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.4
+      },
+      "cooldown": 2.0,
+      "natural_duration": 0.3,
+      "rhythm_capable": true,
+      "tags": ["water"]
+    },
+
+    "wind_over_snow": {
+      "id": "wind_over_snow",
+      "name": "Wind Over Snow",
+      "layer": "background",
+      "frequency_band": "low",
+      "base_probability": 0.6,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind"]
+      },
+      "duration": {
+        "min": 15.0,
+        "max": 40.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "conflict_pairs": ["insects_chirping", "frogs_croaking"],
+      "tags": ["weather", "wind", "snow"]
+    },
+
+    "snow_crunch": {
+      "id": "snow_crunch",
+      "name": "Snow Crunch",
+      "layer": "reactive",
+      "frequency_band": "mid",
+      "base_probability": 0.4,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.2,
+        "max": 0.5,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.5
+      },
+      "cooldown": 0.5,
+      "natural_duration": 0.3,
+      "tags": ["inorganic", "footstep", "snow"]
+    },
+
+    "ice_cracking_distant": {
+      "id": "ice_cracking_distant",
+      "name": "Distant Ice Cracking",
+      "layer": "periodic",
+      "frequency_band": "mid",
+      "base_probability": 0.2,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 1.0,
+        "max": 4.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 30.0,
+      "natural_duration": 2.0,
+      "reverb": true,
+      "tags": ["inorganic", "ice", "distant", "tension"]
+    },
+
+    "sparse_wildlife": {
+      "id": "sparse_wildlife",
+      "name": "Sparse Wildlife",
+      "layer": "periodic",
+      "frequency_band": "mid",
+      "base_probability": 0.1,
+      "time_constraints": ["day"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 2.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.1,
+        "max": 0.3
+      },
+      "cooldown": 45.0,
+      "natural_duration": 1.0,
+      "tags": ["organic", "animal"]
+    },
+
+    "blizzard_wind": {
+      "id": "blizzard_wind",
+      "name": "Blizzard Wind",
+      "layer": "background",
+      "frequency_band": "full",
+      "base_probability": 0.8,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": ["storm"],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 30.0,
+        "max": 90.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.6,
+        "max": 1.0
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["weather", "wind", "snow", "storm"]
+    },
+
+    "muffled_silence": {
+      "id": "muffled_silence",
+      "name": "Muffled Silence",
+      "layer": "background",
+      "frequency_band": "low",
+      "base_probability": 0.7,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": ["storm"],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 20.0,
+        "max": 60.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.02,
+        "max": 0.1
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "is_silence": true,
+      "tags": ["silence", "snow", "ambient"]
+    },
+
+    "dripping_water_cave": {
+      "id": "dripping_water_cave",
+      "name": "Cave Dripping Water",
+      "layer": "periodic",
+      "frequency_band": "mid_high",
+      "base_probability": 0.7,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.3,
+        "max": 0.6,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.5
+      },
+      "cooldown": 2.0,
+      "natural_duration": 0.4,
+      "reverb": true,
+      "rhythm_capable": true,
+      "tags": ["water", "cave", "echo"]
+    },
+
+    "distant_rock_movement": {
+      "id": "distant_rock_movement",
+      "name": "Distant Rock Movement",
+      "layer": "anomalous",
+      "frequency_band": "low_mid",
+      "base_probability": 0.2,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 1.0,
+        "max": 4.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 45.0,
+      "natural_duration": 2.0,
+      "reverb": true,
+      "tags": ["inorganic", "stone", "distant", "tension"]
+    },
+
+    "echoed_footsteps": {
+      "id": "echoed_footsteps",
+      "name": "Echoed Footsteps",
+      "layer": "reactive",
+      "frequency_band": "mid",
+      "base_probability": 0.5,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.3,
+        "max": 0.8,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.4,
+        "max": 0.7
+      },
+      "cooldown": 0.5,
+      "natural_duration": 0.5,
+      "reverb": true,
+      "rhythm_capable": true,
+      "tags": ["inorganic", "footstep", "echo"]
+    },
+
+    "air_movement_cave": {
+      "id": "air_movement_cave",
+      "name": "Cave Air Movement",
+      "layer": "background",
+      "frequency_band": "low",
+      "base_probability": 0.4,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 15.0,
+        "max": 45.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.1,
+        "max": 0.3
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["ambient", "cave"]
+    },
+
+    "underground_stream": {
+      "id": "underground_stream",
+      "name": "Underground Stream",
+      "layer": "background",
+      "frequency_band": "mid",
+      "base_probability": 0.6,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 30.0,
+        "max": 90.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.4
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "requires_feature": "water_present",
+      "tags": ["water", "cave"]
+    },
+
+    "bat_wings": {
+      "id": "bat_wings",
+      "name": "Bat Wings",
+      "layer": "reactive",
+      "frequency_band": "high",
+      "base_probability": 0.15,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 2.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 30.0,
+      "natural_duration": 1.0,
+      "tags": ["organic", "animal", "cave"]
+    },
+
+    "wood_creaks": {
+      "id": "wood_creaks",
+      "name": "Wood Creaks",
+      "layer": "periodic",
+      "frequency_band": "mid",
+      "base_probability": 0.5,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind"]
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 2.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.6
+      },
+      "cooldown": 5.0,
+      "natural_duration": 1.0,
+      "rhythm_capable": true,
+      "tags": ["inorganic", "wood", "structure", "tension"]
+    },
+
+    "metal_groans": {
+      "id": "metal_groans",
+      "name": "Metal Groans",
+      "layer": "periodic",
+      "frequency_band": "low_mid",
+      "base_probability": 0.3,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind"]
+      },
+      "duration": {
+        "min": 1.0,
+        "max": 4.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.3,
+        "max": 0.6
+      },
+      "cooldown": 15.0,
+      "natural_duration": 2.0,
+      "tags": ["inorganic", "metal", "structure", "tension"]
+    },
+
+    "dust_movement": {
+      "id": "dust_movement",
+      "name": "Dust Movement",
+      "layer": "background",
+      "frequency_band": "high",
+      "base_probability": 0.2,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind"]
+      },
+      "duration": {
+        "min": 5.0,
+        "max": 15.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.05,
+        "max": 0.15
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["inorganic", "ambient"]
+    },
+
+    "wind_through_openings": {
+      "id": "wind_through_openings",
+      "name": "Wind Through Openings",
+      "layer": "background",
+      "frequency_band": "mid",
+      "base_probability": 0.6,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind", "storm"]
+      },
+      "duration": {
+        "min": 10.0,
+        "max": 30.0,
+        "type": "continuous"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.5
+      },
+      "cooldown": 0.0,
+      "natural_duration": null,
+      "tags": ["weather", "wind", "structure"]
+    },
+
+    "falling_debris": {
+      "id": "falling_debris",
+      "name": "Falling Debris",
+      "layer": "anomalous",
+      "frequency_band": "mid",
+      "base_probability": 0.1,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": ["wind", "storm"]
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 3.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.4,
+        "max": 0.8
+      },
+      "cooldown": 60.0,
+      "natural_duration": 1.5,
+      "tags": ["inorganic", "structure", "tension"]
+    },
+
+    "rodent_scurrying": {
+      "id": "rodent_scurrying",
+      "name": "Rodent Scurrying",
+      "layer": "reactive",
+      "frequency_band": "high",
+      "base_probability": 0.25,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": [],
+        "excluded": [],
+        "amplified_by": []
+      },
+      "duration": {
+        "min": 0.5,
+        "max": 2.0,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.2,
+        "max": 0.4
+      },
+      "cooldown": 20.0,
+      "natural_duration": 1.0,
+      "tags": ["organic", "animal", "structure"]
+    },
+
+    "door_shutter_banging": {
+      "id": "door_shutter_banging",
+      "name": "Door/Shutter Banging",
+      "layer": "periodic",
+      "frequency_band": "mid",
+      "base_probability": 0.2,
+      "time_constraints": ["all"],
+      "weather_constraints": {
+        "required": ["wind"],
+        "excluded": [],
+        "amplified_by": ["storm"]
+      },
+      "duration": {
+        "min": 0.3,
+        "max": 0.8,
+        "type": "single"
+      },
+      "intensity": {
+        "min": 0.5,
+        "max": 0.8
+      },
+      "cooldown": 8.0,
+      "natural_duration": 0.5,
+      "rhythm_capable": true,
+      "tags": ["inorganic", "structure", "tension"]
+    }
+  }
+}

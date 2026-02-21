@@ -1,0 +1,224 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "SDI calculation weights and factors for Living Soundscape Engine",
+    "last_updated": "2025-02-05"
+  },
+
+  "global_settings": {
+    "sdi_min": -1.0,
+    "sdi_max": 1.0,
+    "operational_max": 0.8,
+    "smoothing_factor": 0.2,
+    "tick_rate": 1.0
+  },
+
+  "discomfort_factors": {
+    "density_overload": {
+      "id": "density_overload",
+      "name": "Sound Density Overload",
+      "description": "Too many concurrent sound events competing for attention",
+      "base_weight": 0.15,
+      "calculation": "per_excess_layer",
+      "modifiers": {
+        "silence_biome": 1.5,
+        "same_frequency_band": 1.3,
+        "same_layer_type": 1.2
+      },
+      "cap": null
+    },
+
+    "layer_conflict": {
+      "id": "layer_conflict",
+      "name": "Layer Overlap Conflict",
+      "description": "Sounds that shouldn't logically coexist appear together",
+      "base_weight": 0.25,
+      "calculation": "per_conflict",
+      "severity_modifiers": {
+        "high": 1.0,
+        "medium": 0.6,
+        "low": 0.3
+      },
+      "cap": null
+    },
+
+    "rhythm_instability": {
+      "id": "rhythm_instability",
+      "name": "Rhythm Instability",
+      "description": "Patterns that almost repeat but don't quite",
+      "base_weight": 0.1,
+      "calculation": "per_unstable_pattern",
+      "detection": {
+        "min_repetitions": 3,
+        "drift_range_min": 0.15,
+        "drift_range_max": 0.40
+      },
+      "formula": "base_weight * (1 + drift_ratio)",
+      "cap": null
+    },
+
+    "silence_deprivation": {
+      "id": "silence_deprivation",
+      "name": "Silence Deprivation",
+      "description": "Expected quiet never arrives",
+      "base_weight": 0.08,
+      "calculation": "time_based",
+      "formula": "base_weight * (excess / silence_tolerance)",
+      "silence_definition": {
+        "min_duration": 2.0,
+        "ignore_layers": ["background"]
+      },
+      "cap": 0.4
+    },
+
+    "contextual_mismatch": {
+      "id": "contextual_mismatch",
+      "name": "Contextual Mismatch",
+      "description": "Sound doesn't match environmental context",
+      "base_weight": 0.2,
+      "calculation": "per_mismatch",
+      "mismatch_weights": {
+        "time_violation": 0.2,
+        "weather_violation": 0.25,
+        "biome_violation": 0.3,
+        "season_violation": 0.2,
+        "population_violation": 0.15
+      },
+      "cap": null
+    },
+
+    "persistence": {
+      "id": "persistence",
+      "name": "Persistence Without Resolution",
+      "description": "Sounds that linger longer than their natural duration",
+      "base_weight": 0.05,
+      "calculation": "time_based",
+      "overstay_threshold": 1.5,
+      "formula": "base_weight * (overstay / 10)",
+      "cap": 0.3
+    },
+
+    "absence_after_pattern": {
+      "id": "absence_after_pattern",
+      "name": "Absence After Pattern Establishment",
+      "description": "A repeating sound stops unexpectedly",
+      "base_weight": 0.15,
+      "calculation": "per_broken_pattern",
+      "detection": {
+        "min_repetitions": 3,
+        "max_repetitions": 5,
+        "absence_threshold_multiplier": 2.0
+      },
+      "formula": "base_weight * min(repetitions / 3, 2.0)",
+      "decay_time": 30.0,
+      "cap": null
+    }
+  },
+
+  "comfort_factors": {
+    "predictable_rhythm": {
+      "id": "predictable_rhythm",
+      "name": "Predictable Rhythm",
+      "description": "Regular, expected patterns that the brain can settle into",
+      "base_weight": -0.1,
+      "calculation": "per_stable_pattern",
+      "detection": {
+        "min_repetitions": 4,
+        "max_variance": 0.10,
+        "min_duration": 30.0
+      },
+      "formula": "base_weight * min(duration / 30, 2.0)",
+      "cap": -0.3
+    },
+
+    "appropriate_silence": {
+      "id": "appropriate_silence",
+      "name": "Appropriate Silence Gaps",
+      "description": "Natural pauses that give the listener room to breathe",
+      "base_weight": -0.05,
+      "calculation": "per_appropriate_gap",
+      "detection": {
+        "min_ratio": 0.5,
+        "max_ratio": 1.5
+      },
+      "cap": -0.2
+    },
+
+    "layer_harmony": {
+      "id": "layer_harmony",
+      "name": "Layer Harmony",
+      "description": "Sounds that logically and aesthetically belong together",
+      "base_weight": -0.08,
+      "calculation": "per_harmony_pair",
+      "strength_modifiers": {
+        "strong": 1.0,
+        "medium": 0.6
+      },
+      "cap": -0.3
+    },
+
+    "gradual_transition": {
+      "id": "gradual_transition",
+      "name": "Gradual Transitions",
+      "description": "Smooth crossfades between sound states",
+      "base_weight": -0.1,
+      "calculation": "per_transition",
+      "detection": {
+        "min_duration": 3.0,
+        "max_volume_delta": 0.3
+      },
+      "cap": -0.2
+    },
+
+    "resolution": {
+      "id": "resolution",
+      "name": "Resolution After Tension",
+      "description": "A building pattern comes to a natural conclusion",
+      "base_weight": -0.15,
+      "calculation": "per_resolution",
+      "formula": "base_weight * min(previous_contribution, 0.3)",
+      "valid_ending_types": ["natural", "fade_out"],
+      "cap": -0.25
+    },
+
+    "environmental_coherence": {
+      "id": "environmental_coherence",
+      "name": "Environmental Coherence",
+      "description": "All active sounds fit the current context perfectly",
+      "base_weight": -0.05,
+      "calculation": "constant_while_maintained",
+      "detection": {
+        "no_mismatches": true,
+        "min_duration": 30.0
+      },
+      "cap": -0.1
+    }
+  },
+
+  "biome_factor_adjustments": {
+    "desert": {
+      "density_overload": 1.5,
+      "silence_deprivation": 1.3
+    },
+    "snow_tundra": {
+      "density_overload": 1.5,
+      "silence_deprivation": 1.2
+    },
+    "swamp": {
+      "density_overload": 0.7,
+      "layer_harmony": 1.2
+    },
+    "cave": {
+      "persistence": 1.3,
+      "absence_after_pattern": 1.2
+    },
+    "ruins": {
+      "rhythm_instability": 1.3,
+      "persistence": 1.2
+    },
+    "ocean_coast": {
+      "predictable_rhythm": 1.3,
+      "layer_harmony": 1.2
+    }
+  }
+}

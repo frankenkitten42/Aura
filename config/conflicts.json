@@ -1,0 +1,268 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "description": "Sound conflict and harmony definitions for Living Soundscape Engine",
+    "last_updated": "2025-02-05"
+  },
+
+  "conflicts": {
+    "_description": "Sound pairs that should not coexist. Triggers SDI penalty when both active.",
+    
+    "by_tag": [
+      {
+        "tag_a": "snow",
+        "tag_b": "insects",
+        "severity": "high",
+        "reason": "Insects don't chirp in frozen environments"
+      },
+      {
+        "tag_a": "desert",
+        "tag_b": "frogs",
+        "severity": "high",
+        "reason": "Frogs require water-rich environments"
+      },
+      {
+        "tag_a": "cave",
+        "tag_b": "birdsong",
+        "severity": "high",
+        "reason": "Songbirds don't inhabit deep caves"
+      },
+      {
+        "tag_a": "snow",
+        "tag_b": "exotic",
+        "severity": "high",
+        "reason": "Tropical species don't exist in frozen biomes"
+      }
+    ],
+
+    "by_sound_id": [
+      {
+        "sound_a": "insects_chirping",
+        "sound_b": "wind_over_snow",
+        "severity": "high"
+      },
+      {
+        "sound_a": "insects_dense",
+        "sound_b": "wind_over_snow",
+        "severity": "high"
+      },
+      {
+        "sound_a": "frogs_croaking",
+        "sound_b": "wind_over_sand",
+        "severity": "high"
+      },
+      {
+        "sound_a": "frogs_croaking",
+        "sound_b": "heat_shimmer_hum",
+        "severity": "high"
+      },
+      {
+        "sound_a": "birdsong",
+        "sound_b": "dripping_water_cave",
+        "severity": "high"
+      },
+      {
+        "sound_a": "birdsong",
+        "sound_b": "echoed_footsteps",
+        "severity": "medium"
+      },
+      {
+        "sound_a": "seabirds",
+        "sound_b": "wind_through_leaves",
+        "severity": "medium"
+      },
+      {
+        "sound_a": "waves_rhythmic",
+        "sound_b": "wind_howls",
+        "severity": "medium"
+      },
+      {
+        "sound_a": "insects_dense",
+        "sound_b": "blizzard_wind",
+        "severity": "high"
+      },
+      {
+        "sound_a": "bird_calls_exotic",
+        "sound_b": "ice_cracking",
+        "severity": "high"
+      },
+      {
+        "sound_a": "bird_calls_exotic",
+        "sound_b": "snow_crunch",
+        "severity": "high"
+      }
+    ],
+
+    "by_frequency_band": [
+      {
+        "band": "high",
+        "max_concurrent": 3,
+        "penalty_per_excess": 0.1,
+        "reason": "Too many high-frequency sounds cause fatigue"
+      },
+      {
+        "band": "low",
+        "max_concurrent": 2,
+        "penalty_per_excess": 0.08,
+        "reason": "Low frequencies muddy when stacked"
+      }
+    ]
+  },
+
+  "harmony": {
+    "_description": "Sound pairs that work well together. Provides SDI bonus when combined.",
+
+    "pairs": [
+      {
+        "sound_a": "birdsong",
+        "sound_b": "wind_through_leaves",
+        "strength": "strong",
+        "context": "Forest daytime ambience"
+      },
+      {
+        "sound_a": "birdsong",
+        "sound_b": "grass_movement",
+        "strength": "strong",
+        "context": "Open field daytime"
+      },
+      {
+        "sound_a": "waves_rhythmic",
+        "sound_b": "seabirds",
+        "strength": "strong",
+        "context": "Classic coastal ambience"
+      },
+      {
+        "sound_a": "waves_rhythmic",
+        "sound_b": "coastal_wind",
+        "strength": "strong",
+        "context": "Breezy shoreline"
+      },
+      {
+        "sound_a": "insects_chirping",
+        "sound_b": "owl_calls",
+        "strength": "strong",
+        "context": "Forest nighttime"
+      },
+      {
+        "sound_a": "frogs_croaking",
+        "sound_b": "insects_dense",
+        "strength": "strong",
+        "context": "Swamp nighttime"
+      },
+      {
+        "sound_a": "dripping_water",
+        "sound_b": "water_bubbling",
+        "strength": "medium",
+        "context": "Wet environments"
+      },
+      {
+        "sound_a": "wind_gusts",
+        "sound_b": "grass_movement",
+        "strength": "strong",
+        "context": "Plains ambience"
+      },
+      {
+        "sound_a": "thunder_distant",
+        "sound_b": "blizzard_wind",
+        "strength": "strong",
+        "context": "Storm weather"
+      },
+      {
+        "sound_a": "wood_creaks",
+        "sound_b": "wind_through_openings",
+        "strength": "medium",
+        "context": "Old structure in wind"
+      },
+      {
+        "sound_a": "dripping_water_cave",
+        "sound_b": "underground_stream",
+        "strength": "strong",
+        "context": "Wet cave"
+      },
+      {
+        "sound_a": "wind_over_snow",
+        "sound_b": "muffled_silence",
+        "strength": "strong",
+        "context": "Tundra isolation"
+      },
+      {
+        "sound_a": "distant_fauna_movement",
+        "sound_b": "birdsong",
+        "strength": "medium",
+        "context": "Active forest"
+      }
+    ],
+
+    "by_tag_combination": [
+      {
+        "tags": ["water", "water"],
+        "strength": "medium",
+        "reason": "Water sounds layer naturally"
+      },
+      {
+        "tags": ["wind", "foliage"],
+        "strength": "strong",
+        "reason": "Wind affecting plants is expected"
+      },
+      {
+        "tags": ["organic", "organic"],
+        "strength": "medium",
+        "reason": "Natural sounds coexist well"
+      },
+      {
+        "tags": ["rhythmic", "pleasant"],
+        "strength": "strong",
+        "reason": "Predictable pleasant sounds soothe"
+      }
+    ]
+  },
+
+  "time_conflicts": {
+    "_description": "Sounds that conflict with specific times of day",
+    
+    "violations": [
+      {
+        "sound_tags": ["day"],
+        "invalid_times": ["night", "midnight"],
+        "severity": "medium"
+      },
+      {
+        "sound_tags": ["night"],
+        "invalid_times": ["day"],
+        "severity": "low"
+      },
+      {
+        "sound_ids": ["birdsong", "bird_calls"],
+        "invalid_times": ["midnight"],
+        "severity": "high"
+      },
+      {
+        "sound_ids": ["owl_calls"],
+        "invalid_times": ["day", "dawn"],
+        "severity": "medium"
+      }
+    ]
+  },
+
+  "weather_conflicts": {
+    "_description": "Sounds that conflict with specific weather states",
+    
+    "violations": [
+      {
+        "sound_ids": ["birdsong", "bird_calls", "seabirds"],
+        "invalid_weather": ["storm"],
+        "severity": "medium"
+      },
+      {
+        "sound_ids": ["thunder_distant", "thunder_close"],
+        "invalid_weather": ["clear"],
+        "severity": "high"
+      },
+      {
+        "sound_ids": ["heat_shimmer_hum"],
+        "invalid_weather": ["rain", "storm", "fog"],
+        "severity": "medium"
+      }
+    ]
+  }
+}
