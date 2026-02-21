@@ -1,0 +1,25 @@
+{
+  "Name": "VDE_Parameters",
+  "ScalarParameters": [
+    {"Name": "Foliage_WindIntensity", "DefaultValue": 1.0},
+    {"Name": "Foliage_WindTurbulence", "DefaultValue": 0.0},
+    {"Name": "Foliage_PhaseOffsetRange", "DefaultValue": 0.0},
+    {"Name": "Foliage_ColorDesaturation", "DefaultValue": 0.0},
+    {"Name": "Water_Clarity", "DefaultValue": 1.0},
+    {"Name": "Water_Turbulence", "DefaultValue": 0.0},
+    {"Name": "Ground_WearIntensity", "DefaultValue": 0.0},
+    {"Name": "Ground_DisplacementReduction", "DefaultValue": 0.0},
+    {"Name": "Ground_ColorDarkening", "DefaultValue": 0.0},
+    {"Name": "Cloth_DampingMultiplier", "DefaultValue": 1.0},
+    {"Name": "Cloth_WindResponse", "DefaultValue": 1.0},
+    {"Name": "Prop_JitterIntensity", "DefaultValue": 0.0},
+    {"Name": "Prop_JitterFrequency", "DefaultValue": 0.0},
+    {"Name": "VDI_Value", "DefaultValue": 0.0},
+    {"Name": "Population_Ratio", "DefaultValue": 0.0}
+  ],
+  "VectorParameters": [
+    {"Name": "Water_ColorTint", "DefaultValue": [1.0, 1.0, 1.0, 1.0]},
+    {"Name": "Ground_WearTint", "DefaultValue": [0.7, 0.6, 0.5, 1.0]},
+    {"Name": "Fog_ColorTint", "DefaultValue": [0.8, 0.85, 0.9, 1.0]}
+  ]
+}

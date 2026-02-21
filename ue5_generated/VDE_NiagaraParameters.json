@@ -1,0 +1,22 @@
+{
+  "Name": "VDE_NiagaraParameters",
+  "Parameters": [
+    {"Name": "VDE_DustSpawnRate", "Type": "Float", "DefaultValue": 0.0},
+    {"Name": "VDE_DustLifetime", "Type": "Float", "DefaultValue": 3.0},
+    {"Name": "VDE_DustSizeMin", "Type": "Float", "DefaultValue": 0.5},
+    {"Name": "VDE_DustSizeMax", "Type": "Float", "DefaultValue": 2.0},
+    {"Name": "VDE_DustVelocityScale", "Type": "Float", "DefaultValue": 1.0},
+    {"Name": "VDE_DustColorTint", "Type": "LinearColor", "DefaultValue": [0.8, 0.75, 0.7, 0.3]},
+    {"Name": "VDE_PollenSpawnRate", "Type": "Float", "DefaultValue": 0.0},
+    {"Name": "VDE_PollenDriftSpeed", "Type": "Float", "DefaultValue": 0.5},
+    {"Name": "VDE_PollenSize", "Type": "Float", "DefaultValue": 0.3},
+    {"Name": "VDE_DebrisSpawnRate", "Type": "Float", "DefaultValue": 0.0},
+    {"Name": "VDE_DebrisFallSpeed", "Type": "Float", "DefaultValue": 1.0},
+    {"Name": "VDE_DebrisRotationSpeed", "Type": "Float", "DefaultValue": 1.0},
+    {"Name": "VDE_WindDirection", "Type": "Vector", "DefaultValue": [1.0, 0.0, 0.0]},
+    {"Name": "VDE_WindDirectionVariance", "Type": "Float", "DefaultValue": 0.0},
+    {"Name": "VDE_GlobalVelocityScale", "Type": "Float", "DefaultValue": 1.0},
+    {"Name": "VDE_InsectDensity", "Type": "Float", "DefaultValue": 1.0},
+    {"Name": "VDE_InsectActivityLevel", "Type": "Float", "DefaultValue": 1.0}
+  ]
+}
