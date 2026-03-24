@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test / coverage reports
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# Environment variables
+.env
+.envrc
+
+# IDE settings
+.idea/
+.vscode/
+
+# UE5 generated output (keep templates, ignore local builds)
+ue5_generated/*.generated.*
+
+# Simulation output files
+*.json.out
+sessions/
+snapshots/
+
+# OS
+.DS_Store
+Thumbs.db

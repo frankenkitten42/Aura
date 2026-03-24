@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Phase 4 Test Script for Living Soundscape Engine
+AURA - Phase 4 Test Script (Sound Selection)
 
 Tests the sound selection system:
 - SoundSelector: Filtering and probability-based selection
 - LayerManager: Capacity management and lifecycle
 - Soundscape: Main orchestration
 
-Run from the lse directory:
+Run from the Aura directory:
     python tests/test_phase4.py
 """
 
@@ -606,7 +606,7 @@ def test_integration():
 def main():
     """Run all Phase 4 tests."""
     print("=" * 60)
-    print("Living Soundscape Engine - Phase 4 Tests")
+    print("AURA - Phase 4 Tests (Sound Selection)")
     print("Sound Selection System")
     print("=" * 60)
     

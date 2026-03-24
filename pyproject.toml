@@ -39,10 +39,10 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/aura"
-Documentation = "https://github.com/yourusername/aura#readme"
-Repository = "https://github.com/yourusername/aura.git"
-Issues = "https://github.com/yourusername/aura/issues"
+Homepage = "https://github.com/frankenkitten42/Aura"
+Documentation = "https://github.com/frankenkitten42/Aura#readme"
+Repository = "https://github.com/frankenkitten42/Aura.git"
+Issues = "https://github.com/frankenkitten42/Aura/issues"
 
 [project.optional-dependencies]
 dev = [

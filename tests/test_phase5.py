@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Phase 5 Test Script for Living Soundscape Engine
+AURA - Phase 5 Test Script (Engine Integration)
 
 Tests the main engine integration:
-- LSEEngine: Main engine class
+- AURAEngine: Main engine class
 - SimulationRunner: Simulation and demo runner
 - Full feedback loop integration
 
-Run from the lse directory:
+Run from the Aura directory:
     python tests/test_phase5.py
 """
 
@@ -535,7 +535,7 @@ def test_full_integration():
 def main():
     """Run all Phase 5 tests."""
     print("=" * 60)
-    print("Living Soundscape Engine - Phase 5 Tests")
+    print("AURA - Phase 5 Tests (Engine Integration)")
     print("Main Engine Integration")
     print("=" * 60)
     

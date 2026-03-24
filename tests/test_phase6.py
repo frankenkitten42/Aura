@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Phase 6 Test Script for Living Soundscape Engine
+AURA - Phase 6 Test Script (Output & Logging)
 
 Tests the output and logging system:
 - EventLogger: Sound event logging
@@ -8,7 +8,7 @@ Tests the output and logging system:
 - DebugLogger: Debug output
 - SessionRecorder: Complete session recording
 
-Run from the lse directory:
+Run from the Aura directory:
     python tests/test_phase6.py
 """
 
@@ -884,7 +884,7 @@ def test_full_integration():
 def main():
     """Run all Phase 6 tests."""
     print("=" * 60)
-    print("Living Soundscape Engine - Phase 6 Tests")
+    print("AURA - Phase 6 Tests (Output & Logging)")
     print("Output and Logging System")
     print("=" * 60)
     

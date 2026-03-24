@@ -14,8 +14,8 @@ Thank you for your interest in contributing to AURA! This document provides guid
 1. Fork the repository
 2. Clone your fork:
    ```bash
-   git clone https://github.com/yourusername/aura.git
-   cd aura
+   git clone https://github.com/frankenkitten42/Aura.git
+   cd Aura
    ```
 3. Create a virtual environment:
    ```bash

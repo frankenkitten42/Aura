@@ -61,8 +61,8 @@ AURA creates natural crowd dispersal through environmental feedback. Instead of 
 ## Installation
 
 ```bash
-git clone <repository>
-cd lse
+git clone https://github.com/frankenkitten42/Aura.git
+cd Aura
 pip install -r requirements.txt
 ```
 

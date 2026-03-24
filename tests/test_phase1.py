@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Phase 1 Test Script for Living Soundscape Engine
+AURA - Phase 1 Test Script (Audio Engine Foundation)
 
 Tests that all foundation modules load and work correctly:
 - utils: Math functions and RNG
 - config: Loading JSON files into typed models
 - core: State management and clock
 
-Run from the lse directory:
+Run from the Aura directory:
     python tests/test_phase1.py
 """
 
@@ -350,7 +350,7 @@ def test_integration():
 def main():
     """Run all Phase 1 tests."""
     print("=" * 60)
-    print("Living Soundscape Engine - Phase 1 Tests")
+    print("AURA - Phase 1 Tests (Audio Engine Foundation)")
     print("=" * 60)
     
     try:

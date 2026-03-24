@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Phase 3 Test Script for Living Soundscape Engine
+AURA - Phase 3 Test Script (SDI Calculation)
 
 Tests the SDI calculation system:
 - DiscomfortCalculator: Positive SDI factors
 - ComfortCalculator: Negative SDI factors
 - SDICalculator: Combined calculation with smoothing
 
-Run from the lse directory:
+Run from the Aura directory:
     python tests/test_phase3.py
 """
 
@@ -618,7 +618,7 @@ def test_full_integration():
 def main():
     """Run all Phase 3 tests."""
     print("=" * 60)
-    print("Living Soundscape Engine - Phase 3 Tests")
+    print("AURA - Phase 3 Tests (SDI Calculation)")
     print("SDI Calculation System")
     print("=" * 60)
     

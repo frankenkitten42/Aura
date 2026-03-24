@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Phase 2 Test Script for Living Soundscape Engine
+AURA - Phase 2 Test Script (Memory Systems)
 
 Tests the memory systems:
 - SoundMemory: Event history and querying
 - SilenceTracker: Silence gap tracking
 - PatternMemory: Rhythm and pattern detection
 
-Run from the lse directory:
+Run from the Aura directory:
     python tests/test_phase2.py
 """
 
@@ -507,7 +507,7 @@ def test_integration():
 def main():
     """Run all Phase 2 tests."""
     print("=" * 60)
-    print("Living Soundscape Engine - Phase 2 Tests")
+    print("AURA - Phase 2 Tests (Memory Systems)")
     print("Memory Systems")
     print("=" * 60)
     
